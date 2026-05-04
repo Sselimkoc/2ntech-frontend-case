@@ -5,7 +5,7 @@ interface User {
   bio: string;
   avatarUrl: string;
   isVerified: boolean;
-  createdAt: string;           // ISO 8601
+  createdAt: string; // ISO 8601
 }
 
 interface Post {
@@ -14,7 +14,7 @@ interface Post {
   imageUrl?: string;
   likeCount: number;
   commentCount: number;
-  createdAt: string;           // ISO 8601
+  createdAt: string; // ISO 8601
 }
 
 interface UserStats {
@@ -23,3 +23,10 @@ interface UserStats {
   postCount: number;
 }
 
+interface PaginatedResponse<T> {
+  data: T[];
+  total: number;
+  page: number;
+  limit: number;
+  hasNextPage: boolean;
+}
