@@ -32,16 +32,17 @@
   }
 
   .dark {
-    --app-bg: #0a0a0a;
-    --app-surface: #141414;
-    --app-surface-2: #1c1c1c;
+    --app-bg: #000000;
 
-    --app-border: #ffffff14;
+    --app-surface: #0a0a0a;
+    --app-surface-2: #141414;
 
-    --app-primary: #c23320;
-    --app-primary-hover: #bb2f1a;
+    --app-border: #ffffff1a;
+
+    --app-primary: #e60000;
+    --app-primary-hover: #cc0000;
 
     --app-text-main: #ffffff;
-    --app-text-muted: #a0a0a0;
+    --app-text-muted: #a1a1aa;
   }
 }

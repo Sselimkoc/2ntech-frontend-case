@@ -17,7 +17,7 @@ interface Props {
 export default function ProfileHeader({ user, stats }: Props) {
   return (
     <header className="bg-surface border-b border-border rounded-t-3xl">
-      <div className="h-0.5 bg-primary rounded-t-3xl" />
+      <div className="h-4  bg-primary rounded-t-3xl" />
 
       <StatsBlock stats={stats} />
 

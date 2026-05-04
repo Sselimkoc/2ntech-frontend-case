@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import DemoDock from "./components/ui/DemoDock";
 
 export const metadata: Metadata = {
   title: "NSosyal | Kullanıcı Profili",
@@ -16,6 +17,7 @@ export default function RootLayout({
       <body
         className={`antialiased bg-background text-text-main min-h-screen transition-colors duration-300`}
       >
+        <DemoDock />
         {children}
       </body>
     </html>
