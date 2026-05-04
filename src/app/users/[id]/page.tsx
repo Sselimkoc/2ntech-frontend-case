@@ -1,31 +1,32 @@
 import PostCard from "@/app/components/profile/PostCard";
 import ProfileHeader from "@/app/components/profile/ProfileHeader";
+import Pagination from "@/app/components/ui/Pagination";
 import { getPosts } from "@/app/lib/posts";
 import { getStats } from "@/app/lib/stats";
 import { getUserById } from "@/app/lib/users";
 
 interface Props {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string , limit?: string }>;
 }
 
 export default async function UserProfilePage({ params, searchParams }: Props) {
   const { id } = await params;
-  const { page } = await searchParams;
-
+  const { page, limit } = await searchParams;
+  const currentLimit = Number(limit ?? "5");
   const currentPage = Number(page ?? "1");
 
   const [user, stats, paginatedPosts] = await Promise.all([
     getUserById(id),
     getStats(id),
-    getPosts(id, currentPage, 5),
+    getPosts(id, currentPage, currentLimit),
   ]);
-
+  const totalPages = Math.ceil(paginatedPosts.total / currentLimit);
   return (
     <main className="min-h-screen relative">
       <div className="bg-glow" />
       <div className="bg-dots" />
-      <div className="bg-diagonal" /> 
+      <div className="bg-diagonal" />
       <div className="bg-noise" />
       <div className="max-w-2xl mx-auto">
         <ProfileHeader user={user} stats={stats} />
@@ -40,7 +41,6 @@ export default async function UserProfilePage({ params, searchParams }: Props) {
 
             {paginatedPosts.data.length === 0 && (
               <div className="p-16 text-center">
-                {/* İkon: Kırmızı parlamalı (Glow) bir dosya veya mesaj ikonu */}
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 shadow-[0_0_20px_rgba(230,0,0,0.1)]">
                   <svg
                     className="w-8 h-8 text-primary"
@@ -66,6 +66,11 @@ export default async function UserProfilePage({ params, searchParams }: Props) {
               </div>
             )}
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            limit={currentLimit}
+          />
         </section>
       </div>
     </main>

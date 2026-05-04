@@ -4,144 +4,153 @@ export const mockPosts: Post[] = [
   {
     id: "1",
     content:
-      "Next.js App Router gerçekten çok güçlü ve esnek. Server Components ile performans inanılmaz!",
-    likeCount: 42,
-    commentCount: 8,
+      "Bugün Next.js App Router ile çalıştım. Server Components mantığını oturtunca yapı gerçekten daha anlaşılır hale geliyor.",
+    likeCount: 58,
+    commentCount: 12,
     createdAt: "2024-01-15T10:00:00Z",
   },
   {
     id: "2",
     content:
-      "TypeScript strict mode kullanmak başlangıçta zor ama sonunda çok değerli.",
-    imageUrl: "https://picsum.photos/seed/post2/600/400",
-    likeCount: 28,
-    commentCount: 5,
+      "TypeScript strict mode açtım. Başta zorladı ama hataları erkenden görmek baya fark yaratıyor.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
+    likeCount: 34,
+    commentCount: 6,
     createdAt: "2024-01-14T09:00:00Z",
   },
   {
     id: "3",
     content:
-      "Tailwind CSS ile responsive tasarım yapmak hiç bu kadar kolay olmamıştı.",
-    likeCount: 35,
-    commentCount: 12,
+      "Tailwind ile responsive layout yazmak gerçekten hız kazandırıyor. Eskiden daha fazla uğraşıyordum.",
+    likeCount: 41,
+    commentCount: 9,
     createdAt: "2024-01-13T14:30:00Z",
   },
   {
     id: "4",
     content:
-      "Server Components ve Client Components ayrımını kavramak biraz zaman aldı ama artık çok mantıklı geliyor.",
-    imageUrl: "https://picsum.photos/seed/post4/600/400",
-    likeCount: 61,
-    commentCount: 17,
+      "Server ve Client Component ayrımını anlamak biraz zaman aldı ama oturunca mantıklı geliyor.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
+    likeCount: 72,
+    commentCount: 18,
     createdAt: "2024-01-12T11:00:00Z",
   },
   {
     id: "5",
     content:
-      "Optimistic UI update kullanıcı deneyimini inanılmaz derecede iyileştiriyor.",
-    likeCount: 19,
-    commentCount: 3,
+      "Optimistic UI denedim. Kullanıcının aksiyon sonrası sonucu anında görmesi deneyimi baya iyileştiriyor.",
+    likeCount: 26,
+    commentCount: 4,
     createdAt: "2024-01-11T16:45:00Z",
   },
   {
     id: "6",
     content:
-      "React Testing Library ile yazdığım ilk test geçti. Küçük bir zafer! ",
-    imageUrl: "https://picsum.photos/seed/post6/600/400",
-    likeCount: 54,
-    commentCount: 9,
+      "React Testing Library ile ilk testimi yazdım ve geçti.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=400&fit=crop",
+    likeCount: 63,
+    commentCount: 11,
     createdAt: "2024-01-10T08:20:00Z",
   },
   {
     id: "7",
     content:
-      "Dark mode desteği eklemek düşündüğümden çok daha kolaydı. CSS variables hayat kurtarıyor.",
-    likeCount: 33,
-    commentCount: 6,
+      "Projeye dark mode ekledim. CSS variables ile yönetmek oldukça kolay oldu.",
+    likeCount: 37,
+    commentCount: 7,
     createdAt: "2024-01-09T13:10:00Z",
   },
   {
     id: "8",
     content:
-      "next/image komponenti ile görsel optimizasyonu otomatik hale geliyor. Kesinlikle kullanın! ",
-    imageUrl: "https://picsum.photos/seed/post8/600/400",
-    likeCount: 47,
-    commentCount: 14,
+      "next/image ile görselleri optimize etmek oldukça pratik. Performansa direkt katkısı var.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
+    likeCount: 52,
+    commentCount: 15,
     createdAt: "2024-01-08T10:55:00Z",
   },
   {
     id: "9",
     content:
-      "URL-based state management pagination için mükemmel bir çözüm. Sayfayı yenilesen bile state korunuyor.",
-    likeCount: 22,
-    commentCount: 4,
+      "Pagination’ı URL state ile yönetmek iyi bir çözüm oldu. Refresh yapsan bile state korunuyor.",
+    likeCount: 29,
+    commentCount: 5,
     createdAt: "2024-01-07T15:30:00Z",
   },
   {
     id: "10",
     content:
-      "Skeleton loading shimmer effect ile uygulama çok daha profesyonel görünüyor. ",
-    imageUrl: "https://picsum.photos/seed/post10/600/400",
-    likeCount: 38,
-    commentCount: 7,
+      "Skeleton loading ekledim. Uygulama artık çok daha hızlı hissediliyor.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=600&h=400&fit=crop",
+    likeCount: 44,
+    commentCount: 8,
     createdAt: "2024-01-06T09:40:00Z",
   },
   {
     id: "11",
     content:
-      "Accessibility konusunda ne kadar az şey bildiğimi fark ettim. ARIA labels çok önemli!",
-    likeCount: 15,
-    commentCount: 2,
+      "Accessibility tarafına daha fazla odaklanmaya başladım. Küçük detaylar büyük fark yaratıyor.",
+    likeCount: 18,
+    commentCount: 3,
     createdAt: "2024-01-05T12:00:00Z",
   },
   {
     id: "12",
     content:
-      "Generic TypeScript tipleri yazmak kodun ne kadar reusable olduğunu artırıyor.",
-    imageUrl: "https://picsum.photos/seed/post12/600/400",
-    likeCount: 29,
-    commentCount: 11,
+      "Generic TypeScript tipleri yazmak kod tekrarını ciddi anlamda azaltıyor.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
+    likeCount: 33,
+    commentCount: 12,
     createdAt: "2024-01-04T17:20:00Z",
   },
   {
     id: "13",
     content:
-      "Promise.all ile paralel API çağrısı yapmak sayfa yükleme süresini yarıya indirdi.",
-    likeCount: 51,
-    commentCount: 16,
+      "Promise.all ile API çağrılarını paralel yaptım. Yüklenme süresi gözle görülür şekilde düştü.",
+    likeCount: 59,
+    commentCount: 19,
     createdAt: "2024-01-03T11:15:00Z",
   },
   {
     id: "14",
     content:
-      "ESLint kurallarını baştan sıkı tutmak sonradan çok işe yarıyor. Teknik borç birikiyor yoksa.",
-    imageUrl: "https://picsum.photos/seed/post14/600/400",
-    likeCount: 24,
-    commentCount: 5,
+      "ESLint kurallarını baştan sıkı tutmak uzun vadede çok işime yaradı.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1505685296765-3a2736de412f?w=600&h=400&fit=crop",
+    likeCount: 31,
+    commentCount: 6,
     createdAt: "2024-01-02T14:50:00Z",
   },
   {
     id: "15",
     content:
-      "useCallback ve useMemo'yu gereksiz yere kullanmak performansı artırmıyor, aksine zorlaştırıyor.",
-    likeCount: 67,
-    commentCount: 23,
+      "useMemo ve useCallback gereksiz kullanıldığında işleri daha karmaşık hale getirebiliyor.",
+    likeCount: 74,
+    commentCount: 25,
     createdAt: "2024-01-01T10:00:00Z",
   },
   {
     id: "16",
-    content: "2024'e yeni bir proje ile giriyorum. Heyecanlıyım! ",
-    imageUrl: "https://picsum.photos/seed/post16/600/400",
-    likeCount: 89,
-    commentCount: 31,
+    content:
+      "Yeni yıla yeni bir proje ile başladım. Bu yıl daha düzenli ilerlemeyi hedefliyorum.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=600&h=400&fit=crop",
+    likeCount: 96,
+    commentCount: 34,
     createdAt: "2023-12-31T23:00:00Z",
   },
   {
     id: "17",
     content:
-      "Yılın son günü kod yazmak ayrı bir his. 2025'te çok şey öğrendim, 2026 daha iyi olacak! ",
-    likeCount: 112,
-    commentCount: 45,
+      "Yılın son gününde bile kod yazmaya devam ettim. Geçen yıl çok şey öğrendim.",
+    likeCount: 121,
+    commentCount: 48,
     createdAt: "2023-12-31T20:00:00Z",
   },
 ];
