@@ -1,11 +1,11 @@
 export const mockStats: Record<string, UserStats> = {
   "1": {
     followerCount: 462,
-    followingCount: 221,
+    followingCount: 12221,
     postCount: 7,
   },
   "2": {
-    followerCount: 432,
+    followerCount: 1233432,
     followingCount: 210,
     postCount: 12,
   },
