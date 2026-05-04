@@ -33,7 +33,6 @@
 
   .dark {
     --app-bg: #000000;
-
     --app-surface: #0a0a0a;
     --app-surface-2: #141414;
 
@@ -45,4 +44,127 @@
     --app-text-main: #ffffff;
     --app-text-muted: #a1a1aa;
   }
+
+  body {
+    background: var(--app-bg);
+    color: var(--app-text-main);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+}
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-glow::before {
+  content: "";
+  position: absolute;
+  top: -160px;
+  right: -160px;
+  width: 500px;
+  height: 500px;
+  border-radius: 9999px;
+  background: rgba(187, 47, 26, 0.2);
+  filter: blur(100px);
+}
+
+.bg-glow::after {
+  content: "";
+  position: absolute;
+  top: 33%;
+  left: -160px;
+  width: 400px;
+  height: 400px;
+  border-radius: 9999px;
+  background: rgba(187, 47, 26, 0.12);
+  filter: blur(100px);
+}
+
+.dark .bg-glow::before {
+  background: rgba(230, 0, 0, 0.25);
+}
+
+.dark .bg-glow::after {
+  background: rgba(230, 0, 0, 0.15);
+}
+
+.bg-dots {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle,
+    rgba(187, 47, 26, 0.2) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.dark .bg-dots {
+  background-image: radial-gradient(
+    circle,
+    rgba(230, 0, 0, 0.15) 1px,
+    transparent 1px
+  );
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.dark .bg-noise {
+  opacity: 0.15;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(rgba(187,47,26,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(187,47,26,0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .bg-grid {
+  background-image: 
+    linear-gradient(rgba(230,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230,0,0,0.06) 1px, transparent 1px);
+}
+
+.bg-diagonal {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(187,47,26,0.04) 0px,
+    rgba(187,47,26,0.04) 1px,
+    transparent 1px,
+    transparent 40px
+  );
+}
+
+.dark .bg-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(230,0,0,0.05) 0px,
+    rgba(230,0,0,0.05) 1px,
+    transparent 1px,
+    transparent 40px
+  );
 }
