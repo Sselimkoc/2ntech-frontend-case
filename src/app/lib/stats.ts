@@ -9,6 +9,11 @@ export const mockStats: Record<string, UserStats> = {
     followingCount: 210,
     postCount: 12,
   },
+  "3": {
+    followerCount: 543,
+    followingCount: 321,
+    postCount: 0,
+  },
 };
 
 export async function getStats(userId: string): Promise<UserStats> {
