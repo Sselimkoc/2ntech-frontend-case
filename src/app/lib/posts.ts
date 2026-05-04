@@ -1,3 +1,5 @@
+import { getStats} from "./stats";
+
 export const mockPosts: Post[] = [
   {
     id: "1",
@@ -150,15 +152,25 @@ export async function getPosts(
   limit: number,
 ): Promise<PaginatedResponse<Post>> {
   await new Promise((resolve) => setTimeout(resolve, 300));
-  if (page < 1 || limit < 1) {
-    throw new Error("Page and limit must be greater than 0");
+
+  const stats = await getStats(userId);
+  const total = Math.min(stats.postCount, mockPosts.length);
+
+  if (total === 0) {
+    return {
+      data: [],
+      total: 0,
+      page,
+      limit,
+      hasNextPage: false,
+    };
   }
-  const total = mockPosts.length;
+
   const start = (page - 1) * limit;
   const end = start + limit;
 
   return {
-    data: mockPosts.slice(start, end),
+    data: mockPosts.slice(start, Math.min(end, total)),
     total,
     page,
     limit,
