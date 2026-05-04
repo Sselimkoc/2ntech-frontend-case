@@ -1,4 +1,6 @@
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <>2ntech</>;
+  redirect("/users/1");
+  
 }
