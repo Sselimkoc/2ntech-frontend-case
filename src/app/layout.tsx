@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NSosyal",
-  description: "NSosyal kullanıcı profil sayfası",
+  title: "NSosyal | Kullanıcı Profili",
+  description: "NSosyal kullanıcı profil sayfası.",
 };
 
 export default function RootLayout({
@@ -12,7 +13,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body
+        className={`antialiased bg-background text-text-main min-h-screen transition-colors duration-300`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
