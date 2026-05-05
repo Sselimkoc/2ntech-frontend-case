@@ -1,5 +1,5 @@
+import { formatCount } from "@/app/utils/formatCount";
 import Image from "next/image";
-import { formatCount } from "../profile/ProfileHeader";
 
 interface Props {
   post: Post;
@@ -21,7 +21,9 @@ export default function PostCard({ post, user }: Props) {
               src={user.avatarUrl}
               alt={user.displayName}
               fill
+              priority
               className="object-cover"
+              sizes="(max-width: 640px) 40px, 48px"
             />
           </div>
         </div>
@@ -39,6 +41,7 @@ export default function PostCard({ post, user }: Props) {
           <p className="text-text-main mt-1 text-[15px] sm:text-base leading-relaxed whitespace-pre-wrap">
             {post.content}
           </p>
+
           {post.imageUrl && (
             <div className="mt-3 relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-border">
               <Image
@@ -46,9 +49,11 @@ export default function PostCard({ post, user }: Props) {
                 alt="Gönderi görseli"
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
               />
             </div>
           )}
+
           <div className="flex items-center gap-6 sm:gap-8 mt-3 text-text-muted">
             <button
               className="flex items-center gap-1.5 group"
