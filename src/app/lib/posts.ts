@@ -82,16 +82,6 @@ export const mockPosts: Post[] = [
     createdAt: "2024-01-07T15:30:00Z",
   },
   {
-    id: "10",
-    content:
-      "Skeleton loading ekledim. Uygulama artık çok daha hızlı hissediliyor.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=600&h=400&fit=crop",
-    likeCount: 44,
-    commentCount: 8,
-    createdAt: "2024-01-06T09:40:00Z",
-  },
-  {
     id: "11",
     content:
       "Accessibility tarafına daha fazla odaklanmaya başladım. Küçük detaylar büyük fark yaratıyor.",

@@ -21,7 +21,7 @@ export const mockUsers: User[] = [
     id: "3",
     username: "aaysecan",
     displayName: "Ayşe Can",
-    bio: "UX Designer UX DesignerUX DesignerUX DesignerUX DesignerUX Designer",
+    bio: "UX Designer",
     avatarUrl: "https://api.dicebear.com/9.x/avataaars/svg?seed=aysecan",
     isVerified: true,
     createdAt: "2026-03-03T00:00:00Z",
