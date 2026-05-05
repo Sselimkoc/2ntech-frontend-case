@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import { mockUsers } from "@/app/lib/users";
@@ -8,21 +8,30 @@ import { mockUsers } from "@/app/lib/users";
 export default function DemoDock() {
   const router = useRouter();
   const params = useParams();
+
+  const [showUsers, setShowUsers] = useState(false);
+  const dockRef = useRef<HTMLDivElement>(null);
+
+  const currentId = (params.id as string) || "1";
+
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
       return document.documentElement.classList.contains("dark");
     }
     return false;
   });
-  const [showUsers, setShowUsers] = useState(false);
-  const dockRef = useRef<HTMLDivElement>(null);
 
-  const toggleTheme = () => {
-    document.documentElement.classList.toggle("dark");
-    setIsDark(!isDark);
-  };
-
-  const currentId = (params.id as string) || "1";
+  const toggleTheme = useCallback(() => {
+    setIsDark((prev) => {
+      const nextTheme = !prev;
+      if (nextTheme) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      return nextTheme;
+    });
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -30,30 +39,63 @@ export default function DemoDock() {
         setShowUsers(false);
       }
     };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement
+      )
+        return;
+
+      if (e.shiftKey && e.key.toLowerCase() === "t") {
+        e.preventDefault();
+        toggleTheme();
+      }
+
+      if (e.shiftKey && e.key.toLowerCase() === "u") {
+        e.preventDefault();
+        const currentIndex = mockUsers.findIndex((u) => u.id === currentId);
+        const nextIndex = (currentIndex + 1) % mockUsers.length;
+        router.push(`/users/${mockUsers[nextIndex].id}`);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentId, router, toggleTheme]);
 
   return (
     <div ref={dockRef} className="fixed bottom-6 right-6 z-50">
       {showUsers && (
-        <div className="absolute bottom-14 right-0 mb-2 w-52 rounded-2xl backdrop-blur-md bg-surface/90 border border-border shadow-xl overflow-hidden">
+        <div
+          role="menu"
+          aria-orientation="vertical"
+          className="absolute bottom-14 right-0 mb-2 w-52 rounded-2xl backdrop-blur-md bg-surface/90 border border-border shadow-xl overflow-hidden animate-in slide-in-from-bottom-2 fade-in duration-200"
+        >
           {mockUsers.map((u) => (
             <button
               key={u.id}
+              role="menuitem"
               onClick={() => {
                 router.push(`/users/${u.id}`);
                 setShowUsers(false);
               }}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 hover:bg-surface-2 transition-colors ${
-                u.id === currentId ? "bg-surface-2" : ""
+              className={`w-full flex items-center gap-3 px-3 py-2.5 transition-colors text-left ${
+                u.id === currentId ? "bg-surface-2" : "hover:bg-surface-2"
               }`}
             >
-              <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-border flex-shrink-0">
+              <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-border shrink-0">
                 <Image
                   src={u.avatarUrl}
                   alt={u.displayName}
                   fill
+                  priority
+                  sizes="32px"
                   className="object-cover"
                 />
               </div>
@@ -76,11 +118,25 @@ export default function DemoDock() {
       <div className="flex items-center p-1.5 rounded-full backdrop-blur-md bg-surface/80 border border-border shadow-lg">
         <button
           onClick={() => setShowUsers(!showUsers)}
-          title="Kullanıcı Seç"
-          className="p-2.5 rounded-full hover:bg-surface-2 transition-colors"
+          aria-expanded={showUsers}
+          aria-haspopup="true"
+          aria-label="Kullanıcı Değiştir"
+          className="relative group p-2.5 rounded-full text-text-muted hover:bg-surface-2 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
+          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-2.5 py-1.5 rounded-lg bg-surface border border-border shadow-lg text-xs font-medium text-text-main opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap flex items-center gap-2 translate-y-1 group-hover:translate-y-0">
+            Kullanıcı Seç
+            <span className="flex items-center gap-0.5 text-[10px] text-text-muted">
+              <kbd className="bg-surface-2 border border-border rounded px-1.5 py-0.5 font-sans">
+                Shift
+              </kbd>
+              <kbd className="bg-surface-2 border border-border rounded px-1.5 py-0.5 font-sans">
+                U
+              </kbd>
+            </span>
+          </div>
+
           <svg
-            className={`w-5 h-5 text-primary`}
+            className="w-5 h-5 text-primary"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -93,12 +149,26 @@ export default function DemoDock() {
             />
           </svg>
         </button>
+
         <div className="w-px h-5 bg-border mx-0.5" />
+
         <button
           onClick={toggleTheme}
-          title="Temayı Değiştir"
-          className="p-2.5 rounded-full text-text-muted hover:bg-surface-2 hover:text-primary transition-colors"
+          aria-label="Temayı Değiştir"
+          className="relative group p-2.5 rounded-full text-text-muted hover:bg-surface-2 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
+          <div className="absolute bottom-full right-0 mb-3 px-2.5 py-1.5 rounded-lg bg-surface border border-border shadow-lg text-xs font-medium text-text-main opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap flex items-center gap-2 translate-y-1 group-hover:translate-y-0">
+            Temayı Değiştir
+            <span className="flex items-center gap-0.5 text-[10px] text-text-muted">
+              <kbd className="bg-surface-2 border border-border rounded px-1.5 py-0.5 font-sans">
+                Shift
+              </kbd>
+              <kbd className="bg-surface-2 border border-border rounded px-1.5 py-0.5 font-sans">
+                T
+              </kbd>
+            </span>
+          </div>
+
           <svg
             className="w-5 h-5 text-primary"
             fill="none"

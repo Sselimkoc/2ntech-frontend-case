@@ -11,16 +11,7 @@ export default function FollowButton() {
         onClick={toggle}
         disabled={isPending}
         aria-label={isFollowing ? "Takibi bırak" : "Takip et"}
-        className={`
-          px-10 py-2 rounded-full text-sm font-medium
-          transition-all duration-200
-          disabled:opacity-60 disabled:cursor-not-allowed
-          ${
-            isFollowing
-              ? "border border-border text-text-main hover:border-primary hover:text-primary"
-              : "bg-primary text-white hover:bg-primary-hover"
-          }
-        `}
+        className={`btn-follow ${isFollowing ? "bg-primary/10 border-primary text-primary" : ""}`}
       >
         {isFollowing ? "Takip Ediliyor" : "Takip Et"}
       </button>

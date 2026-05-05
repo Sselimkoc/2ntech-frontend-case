@@ -4,8 +4,7 @@ export default function Loading() {
       <div className="bg-glow" />
       <div className="bg-dots" />
       <div className="bg-noise" />
-
-      <div className="w-full xl:max-w-2xl xl:mx-auto animate-pulse p-4 xl:p-0">
+      <div className="w-full max-w-4xl mx-auto pt-6 xl:pt-10 pb-12 px-4 xl:px-0 animate-pulse">
         <div className="relative bg-surface border border-border rounded-2xl xl:rounded-3xl overflow-hidden shadow-sm">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full xl:w-2/3 h-24 bg-primary/10 blur-[60px] -z-10 rounded-full pointer-events-none" />
           <div className="grid grid-cols-3 divide-x divide-border">

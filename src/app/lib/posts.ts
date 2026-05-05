@@ -1,4 +1,4 @@
-import { getStats} from "./stats";
+import { getStats } from "./stats";
 
 export const mockPosts: Post[] = [
   {
@@ -47,8 +47,7 @@ export const mockPosts: Post[] = [
   },
   {
     id: "6",
-    content:
-      "React Testing Library ile ilk testimi yazdım ve geçti.",
+    content: "React Testing Library ile ilk testimi yazdım ve geçti.",
     imageUrl:
       "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=400&fit=crop",
     likeCount: 63,
@@ -142,6 +141,51 @@ export const mockPosts: Post[] = [
     likeCount: 121,
     commentCount: 48,
     createdAt: "2023-12-31T20:00:00Z",
+  },
+  {
+    id: "18",
+    content:
+      "Yeni yılın ilk gününde projeye yeni özellikler eklemeye başladım. Hedefim bu yılı verimli geçirmek.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop",
+    likeCount: 88,
+    commentCount: 22,
+    createdAt: "2024-01-01T00:30:00Z",
+  },
+  {
+    id: "19",
+    content:
+      "Yıl boyunca öğrendiğim en önemli şeylerden biri, küçük adımlarla ilerlemenin büyük projelerde bile işleri kolaylaştırdığı oldu.",
+    likeCount: 77,
+    commentCount: 17,
+    createdAt: "2024-01-02T09:45:00Z",
+  },
+
+  {
+    id: "20",
+    content:
+      "2024’te daha fazla open source projeye katkıda bulunmayı planlıyorum. Hem öğrenmek hem de topluluğa geri vermek istiyorum.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+    likeCount: 65,
+    commentCount: 14,
+    createdAt: "2024-01-03T08:00:00Z",
+  },
+  {
+    id: "21",
+    content:
+      "Bu yıl öğrendiğim en önemli şeylerden biri, kodun sadece çalışması değil, aynı zamanda okunabilir ve sürdürülebilir olması gerektiği oldu.",
+    likeCount: 82,
+    commentCount: 19,
+    createdAt: "2024-01-04T10:30:00Z",
+  },
+  {
+    id: "22",
+    content:
+      "Kod yazarken sadece bug’ları değil, aynı zamanda potansiyel performans sorunlarını da göz önünde bulundurmanın ne kadar önemli olduğunu fark ettim.",
+    likeCount: 82,
+    commentCount: 19,
+    createdAt: "2024-01-04T10:30:00Z",
   },
 ];
 
