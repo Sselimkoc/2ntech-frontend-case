@@ -53,11 +53,11 @@ export default function Error({ error, reset }: Props) {
             olabilir.
           </p>
           {/* for debugging */}
-          <div className="mb-8 p-3 rounded-xl bg-primary/5 border border-primary/10">
+          {/* <div className="mb-8 p-3 rounded-xl bg-primary/5 border border-primary/10">
             <p className="text-[10px] font-mono text-primary/70 break-all uppercase tracking-widest">
               Error Log: {error.message || "Unknown error"}
             </p>
-          </div>
+          </div> */}
 
           <div className="flex flex-col gap-3">
             <button

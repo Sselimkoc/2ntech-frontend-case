@@ -138,6 +138,11 @@ Redux / Zustand kullanılmadı. Scope küçük, prop drilling kontrol edilebilir
 
 Gerçek backend yerine mock servisler kullanıldı. `Post` interface'inde `userId` alanı bulunmadığı için post havuzu tüm kullanıcılar arasında ortaktır — her kullanıcının post sayısı `getStats`'tan alınır.
 
+### 5. Hata Yönetimi — Error Throwing vs HTTP Status Codes
+
+Mock API'de kullanıcı bulunamadığında HTTP 404 response yerine direkt `Error` fırlatılıyor. Frontend'de bu hata `error.tsx` boundary tarafından yakalanıyor. Mock ortamda HTTP response objesi döndürmek gereksiz karmaşıklık yaratacağından bu yaklaşım tercih edildi.
+
+Gerçek bir API'de `404 Not Found → notFound()`, `500 Server Error → error boundary` şeklinde status code'a göre ayrıştırılırdı.
 ---
 
 ## Test

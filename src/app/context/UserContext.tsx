@@ -24,10 +24,10 @@ interface Props {
   initialIsFollowing?: boolean;
 }
 //for debugging 
-async function mockToggleFollow(): Promise<void> {
-  await new Promise((res) => setTimeout(res, 800));
-  if (Math.random() < 0.2) throw new Error("Sunucu hatası");
-}
+// async function mockToggleFollow(): Promise<void> {
+//   await new Promise((res) => setTimeout(res, 800));
+//   if (Math.random() < 0.2) throw new Error("Sunucu hatası");
+// }
 
 export function ProfileProvider({
   children,
