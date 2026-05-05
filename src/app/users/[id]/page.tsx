@@ -1,5 +1,5 @@
 import ProfileHeader from "@/app/components/profile/ProfileHeader";
-import PostFeed from "@/app/components/profile/PostFeed";
+import PostFeed from "@/app/components/post/PostFeed";
 import { getPosts } from "@/app/lib/posts";
 import { getStats } from "@/app/lib/stats";
 import { getUserById } from "@/app/lib/users";

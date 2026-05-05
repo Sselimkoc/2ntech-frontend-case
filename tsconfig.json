@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-, "src/app/components/profile/PostFeed.tsx"  ],
+    "**/*.mts",
+    "src/app/components/post/PostFeed.tsx"
+  ],
   "exclude": ["node_modules"]
 }
