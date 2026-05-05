@@ -39,6 +39,7 @@ export default async function UserProfilePage({ params, searchParams }: Props) {
           </h2>
 
           <PostFeed
+            key={`${currentPage}-${currentLimit}`}
             initialPosts={paginatedPosts.data}
             user={user}
             userId={id}
