@@ -181,7 +181,7 @@
     @apply transition-all duration-200 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed;
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ring-offset-background;
 
-    @apply px-10 py-2 rounded-full text-sm font-medium border border-border text-text-main;
+    @apply px-10 py-2 rounded-full text-sm font-medium border border-primary text-text-main;
     @apply hover:border-primary hover:text-primary;
   }
 

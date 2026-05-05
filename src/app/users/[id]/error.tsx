@@ -48,7 +48,7 @@ export default function Error({ error, reset }: Props) {
             Veri Akışı Kesildi
           </h2>
 
-          <p className="text-sm text-text-muted mb-8 leading-relaxed max-w-[280px] mx-auto">
+          <p className="text-sm text-text-muted mb-8 leading-relaxed max-w-70 mx-auto">
             İstediğin veriye şu an ulaşılamıyor. Daha sonra tekrar denemek iyi
             olabilir.
           </p>
