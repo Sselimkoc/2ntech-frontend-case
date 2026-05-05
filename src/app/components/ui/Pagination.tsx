@@ -23,7 +23,7 @@ export default function Pagination({ currentPage, totalPages, limit }: Props) {
   const changeLimit = (newLimit: number) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("limit", String(newLimit));
-    params.set("page", "1"); // limit değişince başa dön
+    params.set("page", "1"); 
     router.push(`?${params.toString()}`);
   };
 
