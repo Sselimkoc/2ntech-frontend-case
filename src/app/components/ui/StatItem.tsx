@@ -1,4 +1,4 @@
-import { formatCount } from "../profile/ProfileHeader";
+import { formatCount } from "@/app/utils/formatCount";
 
 export default function StatItem({ value, label }: { value: number; label: string }) {
   return (
